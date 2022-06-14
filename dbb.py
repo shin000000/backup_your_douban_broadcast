@@ -1,10 +1,3 @@
-import logging
-import os 
-import random
-import sys
-import time
-import urllib.request
-
 from openpyxl import Workbook
 
 from selenium import webdriver
@@ -12,21 +5,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-
-# 添加log
-if not os.path.exists("log"):
-    os.makedirs("log")
-
-log_file_path = "log/{}.log".format(time.strftime("%Y-%m-%d"))
-fh = logging.FileHandler(filename=log_file_path, encoding="UTF-8")
-logging.basicConfig(
-    handlers=[fh], format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger("whatever")
-
-# 在当前目录下创建用于存放图片的文件夹
-path = os.path.join("pictures")
-if not os.path.exists(path):
-    os.makedirs(path)
 
 # 配置chromedriver
 options = webdriver.ChromeOptions()
@@ -38,11 +16,11 @@ options.add_argument('User-Agent=Mozilla/5.0 '
 options.add_argument("disable-blink-features=AutomationControlled")
 driver = webdriver.Chrome(options=options)
 
-# 打开豆瓣提示用户登入，如果用cookie的方式，可以把下面input那一行注释掉。。
+# 打开豆瓣提示用户登入，如果用cookie的方式登入，可以把下面input那一行注释掉。。
 driver.get('https://www.douban.com/') 
 input("【请在打开的标签页中登入豆瓣！登录完毕后请按任意键跳转】")
 
-# # 把你的cookie写在这里
+# # 如果用cookie的方式登入，就把你的cookie写在这里，每一次登录成功程序都会打印出当前cookie所以复制粘贴程序上一次运行时的cookie就好了。
 # cookies = []
 # for cookie in cookies:
 #     driver.add_cookie(cookie)
@@ -53,6 +31,7 @@ time.sleep(3)
 
 # 打印cookies
 cookies = driver.get_cookies()
+print('below are your cookies! you can login with these cookies the second time you log into douban! ↓')
 print(cookies)
 
 # 跳转到用户豆瓣广播页地址
