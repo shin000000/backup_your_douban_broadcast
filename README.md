@@ -3,13 +3,13 @@ quick and dirty code to backup your douban broadcast~~~
 
 requirements:
 
-selenium
+  selenium
 
-openpyxl
+  openpyxl
 
-chromedriver that matches your chrome version
+  chromedriver that matches your chrome version
 
-chrome browser
+  chrome browser
 
 
 pretty simple~~~
