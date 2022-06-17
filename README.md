@@ -1,7 +1,7 @@
 # backup_your_douban_broadcast
 quick and dirty code to backup your douban broadcast~~~
 
-requirements:
+## requirements:
 
   selenium
 
@@ -16,7 +16,7 @@ pretty simple~~~
 only download texts...
 
 
-this ↓ is for images downloading
+## this ↓ is for images downloading
 https://github.com/shin000000/douban-image-downloader
 is dirty code too and downloads your images seperately so writing a version of your own maybe a better idea.
 
